@@ -1,0 +1,680 @@
+openapi: 3.0.3
+info:
+  title: COMPUSCONNECT API
+  version: 1.0.0
+  description: API definition for the COMPUSCONNECT Campus Placement Management System.
+servers:
+- url: http://127.0.0.1:5000
+  description: Local Flask server
+paths:
+  /api/login:
+    post:
+      tags:
+      - Authentication
+      summary: Authenticate user and generate JWT access token
+      responses:
+        '200':
+          description: Successful response
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - username
+              - password
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+                  format: password
+  /company/register:
+    post:
+      tags:
+      - Authentication
+      summary: Register a new company
+      responses:
+        '200':
+          description: Successful response
+  /student/register:
+    post:
+      tags:
+      - Authentication
+      summary: Register a new student
+      responses:
+        '200':
+          description: Successful response
+  /api/admin/dashboard:
+    get:
+      tags:
+      - Admin
+      summary: Fetch admin dashboard data
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+  /api/admin/companies:
+    get:
+      tags:
+      - Admin
+      summary: Fetch all companies
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+  /api/admin/students:
+    get:
+      tags:
+      - Admin
+      summary: Fetch all students
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+  /api/admin/student/{student_id}:
+    get:
+      tags:
+      - Admin
+      summary: Fetch student profile
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: student_id
+        in: path
+        required: true
+        schema:
+          type: integer
+  /api/admin/student/{student_id}/status:
+    put:
+      tags:
+      - Admin
+      summary: Update student status
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: student_id
+        in: path
+        required: true
+        schema:
+          type: integer
+  /api/admin/company/{company_id}:
+    get:
+      tags:
+      - Admin
+      summary: Fetch company profile
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        schema:
+          type: integer
+  /api/admin/company/{company_id}/status:
+    put:
+      tags:
+      - Admin
+      summary: Update company status
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        schema:
+          type: integer
+  /api/company/dashboard:
+    get:
+      tags:
+      - Company
+      summary: Fetch company dashboard data
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+  /api/company/profile:
+    get:
+      tags:
+      - Company
+      summary: Fetch company profile
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+  /api/company/jobs:
+    post:
+      tags:
+      - Jobs
+      summary: Create a new job posting
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - title
+              - job_type
+              - location
+              - salary
+              - experience
+              - deadline
+              - cgpa
+              - vacancies
+              - skills
+              - description
+              properties:
+                title:
+                  type: string
+                job_type:
+                  type: string
+                location:
+                  type: string
+                salary:
+                  type: string
+                experience:
+                  type: string
+                deadline:
+                  type: string
+                  format: date
+                cgpa:
+                  type: number
+                  format: float
+                vacancies:
+                  type: integer
+                skills:
+                  type: string
+                description:
+                  type: string
+  /api/jobs:
+    get:
+      tags:
+      - Jobs
+      summary: Fetch jobs for company or admin
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+  /api/jobs/{job_id}/close:
+    put:
+      tags:
+      - Jobs
+      summary: Close a job posting
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: integer
+  /api/jobs/{job_id}/open:
+    put:
+      tags:
+      - Jobs
+      summary: Open a job posting
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: integer
+  /api/jobs/{job_id}:
+    delete:
+      tags:
+      - Jobs
+      summary: Delete a job posting
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: integer
+  /api/admin/jobs/{job_id}/approve:
+    put:
+      tags:
+      - Admin
+      summary: Approve a job posting
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: integer
+  /api/admin/jobs/{job_id}/reject:
+    put:
+      tags:
+      - Admin
+      summary: Reject a job posting
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: integer
+  /api/applicants:
+    get:
+      tags:
+      - Applications
+      summary: Fetch applicants for company jobs
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+  /api/student/jobs:
+    get:
+      tags:
+      - Student
+      summary: Fetch approved and open jobs
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+  /api/student/apply/{job_id}:
+    post:
+      tags:
+      - Applications
+      summary: Apply for a job
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: integer
+  /api/applicant/{application_id}:
+    get:
+      tags:
+      - Applications
+      summary: Fetch applicant details
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: application_id
+        in: path
+        required: true
+        schema:
+          type: integer
+  /api/application/{application_id}/status:
+    put:
+      tags:
+      - Applications
+      summary: Update application status
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: application_id
+        in: path
+        required: true
+        schema:
+          type: integer
+  /api/application/{application_id}/resume:
+    get:
+      tags:
+      - Resume
+      summary: Download applicant resume
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: application_id
+        in: path
+        required: true
+        schema:
+          type: integer
+  /api/company/applications/{application_id}/interview:
+    post:
+      tags:
+      - Interview
+      summary: Schedule applicant interview
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: application_id
+        in: path
+        required: true
+        schema:
+          type: integer
+  /api/student/dashboard:
+    get:
+      tags:
+      - Student
+      summary: Fetch student dashboard data
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+  /api/student/profile:
+    get:
+      tags:
+      - Student
+      summary: Fetch student profile
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+    put:
+      tags:
+      - Student
+      summary: Update student profile
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+  /api/student/applications:
+    get:
+      tags:
+      - Applications
+      summary: Fetch student application history
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+  /api/student/application/{application_id}:
+    get:
+      tags:
+      - Applications
+      summary: Fetch application details
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: application_id
+        in: path
+        required: true
+        schema:
+          type: integer
+  /api/student/resume:
+    get:
+      tags:
+      - Resume
+      summary: Fetch resume metadata
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+    post:
+      tags:
+      - Resume
+      summary: Upload or replace student resume
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - resume
+              properties:
+                resume:
+                  type: string
+                  format: binary
+  /api/admin/student/{student_id}/resume:
+    get:
+      tags:
+      - Resume
+      summary: Download student resume as admin
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: student_id
+        in: path
+        required: true
+        schema:
+          type: integer
+  /api/student/resume/download:
+    get:
+      tags:
+      - Resume
+      summary: Download student resume
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+  /api/student/notifications:
+    get:
+      tags:
+      - Notifications
+      summary: Fetch student notifications
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+  /api/student/notifications/{id}:
+    put:
+      tags:
+      - Notifications
+      summary: Mark notification as read
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+    delete:
+      tags:
+      - Notifications
+      summary: Delete notification
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+  /api/student/notifications/read-all:
+    put:
+      tags:
+      - Notifications
+      summary: Mark all notifications as read
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+  /api/company/report:
+    post:
+      tags:
+      - Background Tasks
+      summary: Start asynchronous placement report generation
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+  /api/task/{task_id}:
+    get:
+      tags:
+      - Background Tasks
+      summary: Check Celery task status
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: task_id
+        in: path
+        required: true
+        schema:
+          type: string
+  /api/company/report/download:
+    get:
+      tags:
+      - Background Tasks
+      summary: Download generated placement report
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+  /api/company/application/{application_id}/placement:
+    post:
+      tags:
+      - Placement
+      summary: Create placement record
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: application_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - package
+              - joining_date
+              properties:
+                package:
+                  type: integer
+                joining_date:
+                  type: string
+                  format: date
+  /api/export-history:
+    post:
+      tags:
+      - Background Tasks
+      summary: Start asynchronous CSV history export
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+  /api/export-history/{export_id}/status:
+    get:
+      tags:
+      - Background Tasks
+      summary: Check CSV export status
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: export_id
+        in: path
+        required: true
+        schema:
+          type: integer
+  /api/export-history/{export_id}/download:
+    get:
+      tags:
+      - Background Tasks
+      summary: Download completed CSV export
+      responses:
+        '200':
+          description: Successful response
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: export_id
+        in: path
+        required: true
+        schema:
+          type: integer
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

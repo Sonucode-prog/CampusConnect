@@ -1,0 +1,205 @@
+/* Light Theme */
+
+body{
+
+background:#ffffff;
+color:#212529;
+
+transition:.4s;
+
+}
+
+/* Dark Theme */
+
+body.dark-theme{
+
+background:#121212;
+color:white;
+
+}
+.hero-section{
+
+    background:#f8f9fa;
+    
+    transition:.4s;
+    
+    }
+    
+.dark-theme .hero-section{
+    
+    background:#181818;
+    
+    }
+
+/* Navbar */
+
+.dark-theme .navbar{
+
+background:#0d1117 !important;
+
+}
+
+/* Cards */
+
+.dark-theme .card{
+
+background:#1e1e1e;
+
+color:white;
+
+border:1px solid #333;
+
+}
+
+/* Hero */
+
+.dark-theme .bg-light{
+
+background:#181818 !important;
+
+}
+
+/* Features */
+.card{
+
+    transition:.3s;
+    
+    }
+    
+.card:hover{
+    
+    transform:translateY(-8px);
+    
+    }
+    
+.dark-theme .card:hover{
+    
+    box-shadow:0 0 20px rgba(255,255,255,.15);
+    
+    }
+
+.dark-theme section{
+
+background:#121212;
+
+color:white;
+
+}
+
+/* Footer */
+
+.dark-theme footer{
+
+background:#0d1117 !important;
+
+}
+
+/* Buttons */
+
+.dark-theme .btn-outline-primary{
+
+color:white;
+
+border-color:white;
+
+}
+
+.dark-theme .btn-outline-primary:hover{
+
+background:white;
+
+color:black;
+
+}
+
+/* Statistics */
+.stats{
+
+    background:white;
+    
+    }
+    
+.dark-theme .stats{
+    
+    background:#151515;
+    
+    }
+
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4,
+.dark-theme p{
+
+color:white;
+
+}
+
+/* Links */
+
+.dark-theme a{
+
+color:#61dafb;
+
+}
+
+/* Form Controls */
+
+.dark-theme .form-control{
+
+background:#222;
+
+color:white;
+
+border-color:#444;
+
+}
+
+.dark-theme .form-control:focus{
+
+background:#2b2b2b;
+
+color:white;
+
+}
+
+/* Tables */
+
+.dark-theme table{
+
+color:white;
+
+}
+
+/* Dropdown */
+
+.dark-theme .dropdown-menu{
+
+background:#222;
+
+color:white;
+
+}
+
+.dark-theme .dropdown-item{
+
+color:white;
+
+}
+
+.dark-theme .dropdown-item:hover{
+
+background:#333;
+
+}
+/* About Section*/
+.about{
+
+    background:#f8f9fa;
+    }
+    
+.dark-theme .about{
+    
+    background:#181818;
+    
+    }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Placement Report</title>
+</head>
+
+<body>
+
+    <h1>Monthly Placement Report</h1>
+
+    <h2>{{ company.company_name }}</h2>
+
+    <p>Report Month: {{ report_month }}</p>
+
+    <hr>
+
+    <h3>Application Statistics</h3>
+
+    <table border="1">
+        <tr>
+            <th>Total Jobs</th>
+            <th>Total Applications</th>
+            <th>Selected</th>
+            <th>Rejected</th>
+            <th>Pending</th>
+        </tr>
+
+        <tr>
+            <td>{{ total_jobs }}</td>
+            <td>{{ total_applications }}</td>
+            <td>{{ selected }}</td>
+            <td>{{ rejected }}</td>
+            <td>{{ pending }}</td>
+        </tr>
+    </table>
+
+    <h3>Analytics</h3>
+
+    <p>
+        Placement Rate: {{ placement_rate }}%
+    </p>
+
+</body>
+
+</html>
