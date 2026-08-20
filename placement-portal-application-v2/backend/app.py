@@ -37,7 +37,7 @@ migrate = Migrate(app, db)  # Initialize Flask-Migrate for database migrations
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ppa.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
     'DATABASE_URL',
-    'sqlite:///ppa.db'
+    'sqlite:///back_ppa.db'
 )  #for render use the DATABASE_URL environment variable, otherwise default to sqlite:///ppa.db
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'
