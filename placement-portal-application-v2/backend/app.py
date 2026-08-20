@@ -22,7 +22,11 @@ from cache_keys import student_job_cache_key
 app = Flask(__name__) # Initialize Flask application
 
 app.config["CACHE_TYPE"] = "RedisCache"
-app.config["CACHE_REDIS_URL"] = "redis://localhost:6379/0"
+# app.config["CACHE_REDIS_URL"] = "redis://localhost:6379/0"
+app.config["CACHE_REDIS_URL"] = os.getenv(
+    "REDIS_URL",
+    "redis://localhost:6379/0"
+) #for render use the REDIS_URL environment variable, otherwise default to redis://localhost:6379/0
 app.config["CACHE_DEFAULT_TIMEOUT"] = 300
 
 cache.init_app(app)
@@ -30,7 +34,11 @@ cache.init_app(app)
 migrate = Migrate(app, db)  # Initialize Flask-Migrate for database migrations
 
 # Initialize the database with the Flask app context
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ppa.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ppa.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
+    'DATABASE_URL',
+    'sqlite:///ppa.db'
+)  #for render use the DATABASE_URL environment variable, otherwise default to sqlite:///ppa.db
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=4)  # Set the expiration time for JWT tokens to 4 hours

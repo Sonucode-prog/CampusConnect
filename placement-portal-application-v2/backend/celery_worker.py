@@ -1,17 +1,29 @@
 from celery import Celery, Task
 from app import app
 from celery.schedules import crontab
+import os
 
 # Create Celery app
 # broker = where tasks are queued (Redis DB 1)
 # backend = where results are stored (Redis DB 2)
 
-celery_app = Celery(
-    'tasks',
-    broker='redis://localhost:6379/1',
-    backend='redis://localhost:6379/2',
-    include=['tasks']  # tells Celery where to find task functions
+redis_url = os.getenv(
+    "REDIS_URL",
+    "redis://localhost:6379/0"
 )
+
+celery_app = Celery(
+    "tasks",
+    broker=redis_url,
+    backend=redis_url
+)
+
+# celery_app = Celery(
+#     'tasks',
+#     broker='redis://localhost:6379/1',
+#     backend='redis://localhost:6379/2',
+#     include=['tasks']  # tells Celery where to find task functions
+# )
 
 # This class ensures every task runs inside Flask's app context
 # Without this, tasks can't use db.session, render_template, etc.
