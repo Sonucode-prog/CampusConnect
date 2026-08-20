@@ -43,8 +43,8 @@ celery_app.conf.timezone = 'Asia/Kolkata'
 celery_app.conf.beat_schedule = {
     'interview-reminder': {
         'task': 'tasks.check_interview_reminders',
-        'schedule': 60,
-        # 'schedule': crontab(hour=3, minute=30),
+        # 'schedule': 60,
+        'schedule': crontab(hour=3, minute=30),
     },
     
 }
