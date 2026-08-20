@@ -50,10 +50,15 @@ frontend_url = os.getenv(
 
 CORS(
     app,
-    origins=[
-        frontend_url
-    ]
-) #CORS is for allowing cross-origin requests, which is necessary when the frontend and backend are on different domains or ports
+    resources={
+        r"/*": {
+            "origins": [frontend_url],
+            "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+            "allow_headers": ["Content-Type", "Authorization"],
+        }
+    }
+)
+ #CORS is for allowing cross-origin requests, which is necessary when the frontend and backend are on different domains or ports
 jwt=JWTManager(app)
 
 db.init_app(app) # Initialize the database with the Flask app context
