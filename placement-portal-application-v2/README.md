@@ -210,7 +210,7 @@ python app.py
 The backend server will run at:
 
 ```text
-http://127.0.0.1:5000
+`${import.meta.env.VITE_API_URL}
 ```
 
 Keep this terminal running.

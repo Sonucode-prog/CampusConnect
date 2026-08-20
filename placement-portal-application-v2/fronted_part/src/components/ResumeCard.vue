@@ -157,7 +157,7 @@ const selectResume = (event) => {
 const fetchResume = async () => {
     try {
         const response = await axios.get(
-            "http://127.0.0.1:5000/api/student/resume",
+            `${import.meta.env.VITE_API_URL}/api/student/resume`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -179,7 +179,7 @@ const uploadResume = async () => {
     formData.append("resume", selectedFile.value)
     try {
         await axios.post(
-            "http://127.0.0.1:5000/api/student/resume",
+            `${import.meta.env.VITE_API_URL}/api/student/resume`,
             formData,
             {
                 headers: {
@@ -199,7 +199,7 @@ const downloadResume = async () => {
     const token = localStorage.getItem("token");
     try{
     const response = await axios.get(
-        "http://127.0.0.1:5000/api/student/resume/download",
+        `${import.meta.env.VITE_API_URL}/api/student/resume/download`,
         {
             headers: {
                 Authorization: `Bearer ${token}`

@@ -104,7 +104,7 @@ const search = ref("")
 
 const fetchJobs = async () => {
     try {
-        const response = await axios.get("http://127.0.0.1:5000/api/jobs", {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/jobs`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -125,7 +125,7 @@ const deleteJob = async (id) => {
     if (!confirm("Delete this job?")) return
 
     try {
-        await axios.delete(`http://127.0.0.1:5000/api/jobs/${id}`, {
+        await axios.delete(`${import.meta.env.VITE_API_URL}/api/jobs/${id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -142,7 +142,7 @@ const deleteJob = async (id) => {
 
 const closeJob = async(id) => {
     try {
-        await axios.put(`http://127.0.0.1:5000/api/jobs/${id}/close`,{},{
+        await axios.put(`${import.meta.env.VITE_API_URL}/api/jobs/${id}/close`,{},{
             headers:{
                 Authorization:`Bearer ${token}`
             }
@@ -155,7 +155,7 @@ const closeJob = async(id) => {
 
 const openJob = async(id) => {
     try {
-        await axios.put(`http://127.0.0.1:5000/api/jobs/${id}/open`,{},{
+        await axios.put(`${import.meta.env.VITE_API_URL}/api/jobs/${id}/open`,{},{
             headers:{
                 Authorization:`Bearer ${token}`
             }

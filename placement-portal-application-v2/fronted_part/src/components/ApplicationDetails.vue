@@ -114,7 +114,7 @@ const application = ref({})
 
 const fetchApplication = async () => {
     try {
-        const response = await axios.get(`http://127.0.0.1:5000/api/student/application/${route.params.id}`,{
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/student/application/${route.params.id}`,{
             headers:{
                 Authorization:`Bearer ${token}`
             }

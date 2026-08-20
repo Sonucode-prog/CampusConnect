@@ -122,7 +122,7 @@ const search = ref("")
 const fetchStudents = async () => {
     try {
         const response = await axios.get(
-            "http://127.0.0.1:5000/api/admin/students",
+            `${import.meta.env.VITE_API_URL}/api/admin/students`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`

@@ -194,7 +194,7 @@ const handleSubmit = async () => {
   // handleSubmit:- An asynchronous function that will be called when the registration form is submitted.
   // It will send the form data to the backend API and handle the response.
   try {
-    const response = await axios.post('http://127.0.0.1:5000/student/register', formData) // Send a POST request to the backend API endpoint '/student/register' with the formData as the request body.
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/student/register`, formData) // Send a POST request to the backend API endpoint '/student/register' with the formData as the request body.
 
     console.log(response.data.message)
     router.push('/Login') // Navigate to the login page after successful registration

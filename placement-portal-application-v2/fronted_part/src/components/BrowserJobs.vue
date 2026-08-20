@@ -162,7 +162,7 @@ const locationFilter = ref("")
 
 const fetchJobs = async () => {
     try {
-        const response = await axios.get("http://127.0.0.1:5000/api/student/jobs",{
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/student/jobs`,{
             headers:{
                 Authorization:`Bearer ${token}`
             }
@@ -184,7 +184,7 @@ const filteredJobs = computed(() => {
 
 const applyJob = async(jobId) => {
     try {
-        const response = await axios.post(`http://127.0.0.1:5000/api/student/apply/${jobId}`,{},{
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/student/apply/${jobId}`,{},{
             headers:{
                 Authorization:`Bearer ${token}`
             }

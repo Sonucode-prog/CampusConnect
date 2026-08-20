@@ -104,7 +104,7 @@ const job = ref({
 const postJob = async () => {
     try {
         await axios.post(
-            "http://127.0.0.1:5000/api/company/jobs",
+            `${import.meta.env.VITE_API_URL}/api/company/jobs`,
             job.value,
             {
                 headers: {

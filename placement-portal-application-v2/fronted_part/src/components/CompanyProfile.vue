@@ -246,7 +246,7 @@ const fetchCompany = async () => {
     try {
 
         const response = await axios.get(
-            `http://127.0.0.1:5000/api/admin/company/${route.params.id}`,
+            `${import.meta.env.VITE_API_URL}/api/admin/company/${route.params.id}`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -271,7 +271,7 @@ const saveStatus = async () => {
     try {
 
         await axios.put(
-            `http://127.0.0.1:5000/api/admin/company/${route.params.id}/status`,
+            `${import.meta.env.VITE_API_URL}/api/admin/company/${route.params.id}/status`,
             {
                 status: company.value.status
             },

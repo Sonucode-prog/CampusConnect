@@ -136,7 +136,7 @@ const student = ref({})
 const fetchProfile = async () => {
 
     const response = await axios.get(
-        "http://127.0.0.1:5000/api/student/profile",
+        `${import.meta.env.VITE_API_URL}/api/student/profile`,
         {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -151,7 +151,7 @@ const fetchProfile = async () => {
 const updateProfile = async () => {
     try{
     await axios.put(
-        "http://127.0.0.1:5000/api/student/profile",
+        `${import.meta.env.VITE_API_URL}/api/student/profile`,
         student.value,
         {
             headers: {

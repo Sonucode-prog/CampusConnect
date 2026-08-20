@@ -214,7 +214,7 @@ const student = ref({
 
 const fetchStudent = async () => {
     try {
-        const response = await axios.get(`http://127.0.0.1:5000/api/admin/student/${route.params.id}`, {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/admin/student/${route.params.id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -227,7 +227,7 @@ const fetchStudent = async () => {
 
 const saveStatus = async () => {
     try {
-        await axios.put(`http://127.0.0.1:5000/api/admin/student/${route.params.id}/status`,
+        await axios.put(`${import.meta.env.VITE_API_URL}/api/admin/student/${route.params.id}/status`,
             {
                 status: student.value.status
             },
@@ -244,7 +244,7 @@ const saveStatus = async () => {
 
 const downloadResume = async () => {
     try {
-        const response = await axios.get(`http://127.0.0.1:5000/api/admin/student/${route.params.id}/resume`,{
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/admin/student/${route.params.id}/resume`,{
             responseType:"blob",
             headers:{
                 Authorization:`Bearer ${token}`

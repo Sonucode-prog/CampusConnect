@@ -124,7 +124,7 @@ const selectedStatus = ref("")
 
 const fetchApplicants = async () => {
     try {
-        const response = await axios.get("http://127.0.0.1:5000/api/applicants", {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/applicants`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -171,7 +171,7 @@ const startExport = async () => {
         const token = localStorage.getItem("companytoken");
 
         const response = await axios.post(
-            "http://127.0.0.1:5000/api/export-history",
+            `${import.meta.env.VITE_API_URL}/api/export-history`,
             {},
             {
                 headers: {
@@ -197,7 +197,7 @@ const checkExportStatus = (exportId) => {
             const token = localStorage.getItem("companytoken");
 
             const response = await axios.get(
-                `http://127.0.0.1:5000/api/export-history/${exportId}/status`,
+                `${import.meta.env.VITE_API_URL}/api/export-history/${exportId}/status`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -232,7 +232,7 @@ const downloadCSV = async (exportId) => {
         const token = localStorage.getItem("companytoken");
 
         const response = await axios.get(
-            `http://127.0.0.1:5000/api/export-history/${exportId}/download`,
+            `${import.meta.env.VITE_API_URL}/api/export-history/${exportId}/download`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`

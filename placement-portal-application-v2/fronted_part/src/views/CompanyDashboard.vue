@@ -142,7 +142,7 @@ const fetchDashboard = async () => {
 
     try {
         const response = await axios.get(
-            "http://127.0.0.1:5000/api/company/dashboard",
+            `${import.meta.env.VITE_API_URL}/api/company/dashboard`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`

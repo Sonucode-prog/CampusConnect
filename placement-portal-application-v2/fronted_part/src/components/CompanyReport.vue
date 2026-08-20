@@ -202,7 +202,7 @@ const generateReport = async () => {
         reportReady.value = false;
 
         const response = await axios.post(
-            "http://127.0.0.1:5000/api/company/report",
+            `${import.meta.env.VITE_API_URL}/api/company/report`,
             {},
             {
                 headers: {
@@ -233,7 +233,7 @@ const checkTaskStatus = () => {
         try {
 
             const response = await axios.get(
-                `http://127.0.0.1:5000/api/task/${taskId.value}`,
+                `${import.meta.env.VITE_API_URL}/api/task/${taskId.value}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -278,7 +278,7 @@ const downloadReport = async () => {
     try {
 
         const response = await axios.get(
-            "http://127.0.0.1:5000/api/company/report/download",
+            `${import.meta.env.VITE_API_URL}/api/company/report/download`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`

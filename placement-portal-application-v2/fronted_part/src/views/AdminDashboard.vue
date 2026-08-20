@@ -114,7 +114,7 @@ const registrations = ref([])
 const fetchDashboard = async () => {
     try {
         const response = await axios.get(
-            "http://127.0.0.1:5000/api/admin/dashboard",
+            `${import.meta.env.VITE_API_URL}/api/admin/dashboard`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`

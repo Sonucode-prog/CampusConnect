@@ -193,7 +193,7 @@ const applicant = ref({})
 
 const fetchApplicant = async () => {
     try {
-        const response = await axios.get(`http://127.0.0.1:5000/api/applicant/${route.params.id}`, {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/applicant/${route.params.id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -207,7 +207,7 @@ const fetchApplicant = async () => {
 
 const saveStatus = async () => {
     try {
-        await axios.put(`http://127.0.0.1:5000/api/application/${route.params.id}/status`,
+        await axios.put(`${import.meta.env.VITE_API_URL}/api/application/${route.params.id}/status`,
             {
                 status: applicant.value.status
             },
@@ -226,7 +226,7 @@ const saveStatus = async () => {
 const downloadResume = async () => {
     // const token = localStorage.getItem("token");
     try {
-        const response = await axios.get(`http://127.0.0.1:5000/api/application/${route.params.id}/resume`,{
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/application/${route.params.id}/resume`,{
             responseType:"blob",
             headers:{
                 Authorization:`Bearer ${token}`

@@ -54,7 +54,7 @@ const notifications=ref([])
 
 const fetchNotifications=async()=>{
     try{
-        const response=await axios.get("http://127.0.0.1:5000/api/student/notifications",{
+        const response=await axios.get(`${import.meta.env.VITE_API_URL}/api/student/notifications`,{
             headers:{
                 Authorization:`Bearer ${token}`
             }
@@ -67,7 +67,7 @@ const fetchNotifications=async()=>{
 
 const markRead=async(id)=>{
     try{
-        await axios.put(`http://127.0.0.1:5000/api/student/notifications/${id}`,{},{
+        await axios.put(`${import.meta.env.VITE_API_URL}/api/student/notifications/${id}`,{},{
             headers:{
                 Authorization:`Bearer ${token}`
             }
@@ -81,7 +81,7 @@ const markRead=async(id)=>{
 const deleteNotification=async(id)=>{
     if(!confirm("Delete this notification?")) return
     try{
-        await axios.delete(`http://127.0.0.1:5000/api/student/notifications/${id}`,{
+        await axios.delete(`${import.meta.env.VITE_API_URL}/api/student/notifications/${id}`,{
             headers:{
                 Authorization:`Bearer ${token}`
             }
@@ -94,7 +94,7 @@ const deleteNotification=async(id)=>{
 
 const markAllRead=async()=>{
     try{
-        await axios.put("http://127.0.0.1:5000/api/student/notifications/read-all",{},{
+        await axios.put(`${import.meta.env.VITE_API_URL}/api/student/notifications/read-all`,{},{
             headers:{
                 Authorization:`Bearer ${token}`
             }

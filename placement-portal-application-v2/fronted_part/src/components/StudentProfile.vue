@@ -176,7 +176,7 @@ const fetchProfile = async () => {
         const token = localStorage.getItem("studenttoken");
 
         const response = await axios.get(
-            "http://127.0.0.1:5000/api/student/profile",
+            `${import.meta.env.VITE_API_URL}/api/student/profile`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -198,7 +198,7 @@ const downloadResume = async () => {
     const token = localStorage.getItem("studenttoken");
     try {
         const response = await axios.get(
-            "http://127.0.0.1:5000/api/student/resume/download",
+            `${import.meta.env.VITE_API_URL}/api/student/resume/download`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`

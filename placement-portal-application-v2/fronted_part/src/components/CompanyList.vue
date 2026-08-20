@@ -130,7 +130,7 @@ const statusFilter = ref("")
 const fetchCompanies = async () => {
     try {
         const response = await axios.get(
-            "http://127.0.0.1:5000/api/admin/companies",
+            `${import.meta.env.VITE_API_URL}/api/admin/companies`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`

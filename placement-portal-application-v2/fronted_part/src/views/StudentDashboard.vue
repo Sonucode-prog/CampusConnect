@@ -81,7 +81,7 @@ onMounted(async () => {
 
 	const token = localStorage.getItem("studenttoken")
 	try {
-		const res = await axios.get("http://127.0.0.1:5000/api/student/dashboard", {
+		const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/student/dashboard`, {
 
 			headers: {
 				Authorization: `Bearer ${token}`
