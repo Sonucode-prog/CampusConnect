@@ -1,37 +1,33 @@
 ![Landing Page](cc_landingpage.png)
-# COMPUSCONNECT — Project Overview
+# COMPUSCONNECT
 
-**COMPUSCONNECT** is a full-stack web application designed to provide a centralized platform for managing interactions between students, companies, colleges, and administrators. The system provides role-based dashboards, secure authentication, opportunity management, application tracking, and administrative features through a modern web interface.
+## 📌 Overview
 
-## 🛠️ Technologies Used
+**COMPUSCONNECT** is a full-stack placement management web application built to connect **students, companies, colleges, and administrators** on a centralized platform.
 
-### Frontend
+The application provides role-based dashboards and features for managing placement opportunities, student applications, company information, and administrative activities. It uses a **Vue.js 3 frontend** integrated with a **Flask REST API backend**, with SQLAlchemy for database operations and Redis/Celery for caching and background task processing.
 
-* **Vue.js** — Used to build the interactive and component-based user interface.
-* **Bootstrap** — Used for responsive layouts, navigation bars, cards, forms, buttons, and overall UI styling.
-* **Axios** — Used to communicate with the backend REST APIs.
-* **Vue Router** — Used for client-side navigation and protected routes.
-* **Vuex** — Used for centralized state management.
+---
 
-### Backend
+## 🛠️ Technology Stack
 
-* **Python** — Primary backend programming language.
-* **FastAPI** — Used to develop RESTful APIs and backend services.
-* **SQLAlchemy** — Used as the ORM for database interaction and model management.
-* **Pydantic** — Used for request validation and data schemas.
-* **JWT Authentication** — Used for secure authentication and authorization.
-* **Uvicorn** — Used as the ASGI server to run the FastAPI application.
-
-### Database & Background Services
-
-* **Relational Database** — Used to store users, companies, students, opportunities, applications, and other application data.
-* **Redis** — Used as a message broker/cache for background processing.
-* **Celery** — Used to execute asynchronous/background tasks.
-
-### Development Tools
-
-* **Git & GitHub** — Used for version control and project management.
-* **REST APIs** — Used for communication between the Vue.js frontend and FastAPI backend.
+| Technology / Library        | Purpose                                                   |
+| --------------------------- | --------------------------------------------------------- |
+| **Flask**                   | Backend framework for REST APIs and business logic        |
+| **Vue.js 3**                | Frontend framework for dynamic and interactive dashboards |
+| **SQLAlchemy**              | ORM for database operations                               |
+| **Vue Router**              | Frontend routing and role-based navigation                |
+| **Axios**                   | HTTP communication between Vue.js and Flask               |
+| **Flask-JWT-Extended**      | JWT-based authentication and authorization                |
+| **Redis**                   | Caching and Celery message broker                         |
+| **Celery**                  | Asynchronous background task processing                   |
+| **Celery Beat**             | Scheduled background task execution                       |
+| **Bootstrap 5**             | Responsive UI and frontend components                     |
+| **CSS**                     | Custom styling and interface design                       |
+| **Flask-Caching**           | Redis-based caching for Flask APIs                        |
+| **Flask-CORS**              | Communication between frontend and backend                |
+| **Flask-Migrate / Alembic** | Database schema migration management                      |
+| **Werkzeug**                | Password hashing and security utilities                   |
 
 ---
 
@@ -39,84 +35,65 @@
 
 ### 🔐 Authentication & Authorization
 
-* User login and registration.
-* JWT-based authentication.
-* Secure access to protected APIs.
-* Role-based authorization.
-* Different permissions and dashboards based on user roles.
+* User login and authentication
+* JWT-based authentication
+* Role-based authorization
+* Protected API endpoints
+* Password hashing using Werkzeug
 
-### 👨‍💼 Admin Dashboard
+### 👨‍💼 Admin Management
 
-* Centralized admin dashboard.
-* View important platform statistics.
-* Manage and monitor users and platform activities.
-* Access administrative APIs through protected routes.
+* Admin dashboard
+* Manage and monitor users
+* Access administrative functionality
+* View platform-related information
 
 ### 🏢 Company Management
 
-* Company-specific dashboard.
-* Manage company information.
-* Create and manage opportunities.
-* View and manage student applications.
-* Track recruitment-related activities.
+* Company dashboard
+* Manage company information
+* Create and manage placement opportunities
+* View and manage student applications
 
 ### 🎓 Student Management
 
-* Student-specific dashboard.
-* View available opportunities.
-* Apply for opportunities.
-* Track application status.
-* Manage student profile information.
+* Student dashboard
+* View available placement opportunities
+* Apply for opportunities
+* Track application status
+* Manage student information
 
 ### 🏫 College Management
 
-* College/institute-related functionality.
-* Manage college information.
-* Access relevant opportunities and application information.
+* College-related management
+* Access placement-related information
+* Manage relevant student/company information
 
 ### 📊 Dashboard & Data Management
 
-* Role-specific dashboards.
-* Dynamic data retrieved through REST APIs.
-* CRUD operations for major application entities.
-* Centralized state management using Vuex.
-
-### 🔄 API Integration
-
-* Frontend communicates with the backend using Axios.
-* RESTful API architecture.
-* Protected API requests using JWT tokens.
-* Backend request validation using Pydantic.
-
-### ⚙️ Background Processing
-
-* Asynchronous task processing using Celery.
-* Redis used as the message broker.
-* Background jobs can run independently from API requests.
-
-### 📱 Responsive UI
-
-* Responsive interface built using Bootstrap.
-* Reusable Vue.js components.
-* Navigation and page routing using Vue Router.
-
----
-
-## 🔑 Main Technical Highlights
-
-The project demonstrates practical implementation of:
-
-* Full-stack application architecture
-* Vue.js frontend development
-* FastAPI REST API development
-* JWT authentication
-* Role-based access control (RBAC)
-* SQLAlchemy ORM
-* Relational database management
-* Axios API integration
-* Vue Router
-* Vuex state management
-* Redis and Celery background processing
+* Role-specific dashboards
+* Dynamic data through REST APIs
 * CRUD operations
-* Responsive web design
-* Git/GitHub version control
+* Placement and application management
+
+### ⚙️ Background & Scheduled Tasks
+
+* Asynchronous processing using **Celery**
+* Scheduled tasks using **Celery Beat**
+* Redis used as the Celery message broker
+
+### 🚀 Caching
+
+* Flask-Caching integration
+* Redis-based caching
+* Improved API performance by reducing repeated database queries
+
+### 🌐 Frontend & API Integration
+
+* Vue.js 3 frontend
+* Flask REST APIs
+* Axios for frontend-backend communication
+* Vue Router for navigation
+* Flask-CORS for cross-origin communication
+* Responsive UI using Bootstrap 5
+* Custom CSS styling
