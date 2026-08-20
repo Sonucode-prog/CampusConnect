@@ -63,20 +63,20 @@ jwt=JWTManager(app)
 
 db.init_app(app) # Initialize the database with the Flask app context
 
-with app.app_context():  # Create the database tables based on the models defined in models.py
-    db.create_all()
-    admin=User.query.filter_by(username='admin').first()
-    print(admin)
-    if not admin:
-        admin_credential=User(
-            username='admin',
-            email='admin@example.com',
-            password=generate_password_hash('admin123'),
-            role='admin'
+# with app.app_context():  # Create the database tables based on the models defined in models.py
+#     db.create_all()
+#     admin=User.query.filter_by(username='admin').first()
+#     print(admin)
+#     if not admin:
+#         admin_credential=User(
+#             username='admin',
+#             email='admin@example.com',
+#             password=generate_password_hash('admin123'),
+#             role='admin'
         
-    )
-        db.session.add(admin_credential)
-        db.session.commit()
+#     )
+#         db.session.add(admin_credential)
+#         db.session.commit()
         
 #------------------------------------------------------------------------------------------------------------------------------------------------------
 
