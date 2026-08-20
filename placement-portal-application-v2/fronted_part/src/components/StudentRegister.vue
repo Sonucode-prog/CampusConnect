@@ -42,11 +42,11 @@
                   <div class="col-md-6 mb-3">
                     <select class="form-select" v-model="formData.year">
                       <option value="">Select Year</option>
-                      <option>1st Year</option>
-                      <option>2nd Year</option>
-                      <option>3rd Year</option>
-                      <option>4th Year</option>
-                      <option>5th Year</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
                     </select>
                   </div>
                   <div class="col-md-6 mb-3">
