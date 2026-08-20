@@ -43,7 +43,17 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=4)  # Set the expiration time for JWT tokens to 4 hours
 
-CORS(app, origins=["http://localhost:5173"]) #CORS is for allowing cross-origin requests, which is necessary when the frontend and backend are on different domains or ports
+frontend_url = os.getenv(
+    "FRONTEND_URL",
+    "http://localhost:5173"
+)
+
+CORS(
+    app,
+    origins=[
+        frontend_url
+    ]
+) #CORS is for allowing cross-origin requests, which is necessary when the frontend and backend are on different domains or ports
 jwt=JWTManager(app)
 
 db.init_app(app) # Initialize the database with the Flask app context
