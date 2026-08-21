@@ -1,5 +1,6 @@
 <template>
     <Navbar/>
+    <StudSidebar/>
     <div class="card profile-card shadow-sm mt-4">
 
         <div class="card-header d-flex justify-content-between align-items-center">
@@ -139,6 +140,7 @@
 import { ref} from "vue"
 import axios from "axios"
 import Navbar from "./Navbar.vue"
+import StudSidebar from "./StudSidebar.vue"
 
 const selectedFile = ref(null)
 
