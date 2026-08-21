@@ -211,11 +211,17 @@
 ========================= */
 
 .main-content {
-	margin-left: 260px;
-	padding: 30px;
-	min-height: 100vh;
-	background: #f6f8fc;
-	transition: all 0.3s ease;
+    margin-left: 260px;
+    width: calc(100% - 260px);
+
+    padding: 30px;
+    min-height: 100vh;
+
+    background: #f6f8fc;
+
+    transition: all 0.3s ease;
+
+    box-sizing: border-box;
 }
 
 
@@ -696,28 +702,27 @@
 
 @media (max-width: 991px) {
 
-	.main-content {
-		margin-left: 220px;
+.main-content {
+	margin-left: 220px;
+	width: calc(100% - 220px);
 
-		padding: 20px;
-	}
-
-	.welcome-banner {
-		padding: 30px;
-	}
-
-	.welcome-banner h1 {
-		font-size: 26px;
-	}
-
-	.welcome-icon {
-		width: 90px;
-		height: 90px;
-
-		font-size: 42px;
-	}
+	padding: 20px;
 }
 
+.welcome-banner {
+	padding: 30px;
+}
+
+.welcome-banner h1 {
+	font-size: 26px;
+}
+
+.welcome-icon {
+	width: 90px;
+	height: 90px;
+	font-size: 42px;
+}
+}
 
 /* =========================
    MOBILE
@@ -725,66 +730,66 @@
 
 @media (max-width: 767px) {
 
-	.main-content {
-		margin-left: 0;
+    .main-content {
+        margin-left: 80px;
+        width: calc(100% - 80px);
 
-		padding: 15px;
-	}
+        padding: 15px;
 
-	.welcome-banner {
-		padding: 25px;
+        box-sizing: border-box;
+    }
 
-		border-radius: 16px;
-	}
+    .welcome-banner {
+        padding: 25px;
+        border-radius: 16px;
+    }
 
-	.welcome-banner h1 {
-		font-size: 22px;
-	}
+    .welcome-banner h1 {
+        font-size: 22px;
+    }
 
-	.welcome-banner p {
-		font-size: 13px;
-	}
+    .welcome-banner p {
+        font-size: 13px;
+    }
 
-	.welcome-icon {
-		display: none;
-	}
+    .welcome-icon {
+        display: none;
+    }
 
-	.student-email {
-		font-size: 12px;
-	}
+    .student-email {
+        font-size: 12px;
+    }
 
-	.stat-card {
-		min-height: 125px;
+    .stat-card {
+        min-height: 125px;
+        padding: 20px;
+    }
 
-		padding: 20px;
-	}
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 21px;
+    }
 
-	.stat-icon {
-		width: 50px;
-		height: 50px;
+    .stat-content h2 {
+        font-size: 25px;
+    }
 
-		font-size: 21px;
-	}
+    .section-header {
+        align-items: flex-end;
+    }
 
-	.stat-content h2 {
-		font-size: 25px;
-	}
+    .section-header h3 {
+        font-size: 21px;
+    }
 
-	.section-header {
-		align-items: flex-end;
-	}
+    .view-all-btn {
+        font-size: 12px;
+    }
 
-	.section-header h3 {
-		font-size: 21px;
-	}
-
-	.view-all-btn {
-		font-size: 12px;
-	}
-
-	.jobs-table {
-		min-width: 850px;
-	}
+    .jobs-table {
+        min-width: 700px;
+    }
 }
 
 
@@ -794,28 +799,32 @@
 
 @media (max-width: 480px) {
 
-	.main-content {
-		padding: 10px;
-	}
+    .main-content {
+        margin-left: 80px;
+        width: calc(100% - 80px);
 
-	.welcome-banner {
-		padding: 20px;
-	}
+        padding: 10px;
 
-	.welcome-banner h1 {
-		font-size: 20px;
-	}
+        box-sizing: border-box;
+    }
 
-	.section-header {
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 10px;
-	}
+    .welcome-banner {
+        padding: 20px;
+    }
 
-	.stat-card {
-		min-height: 110px;
-	}
+    .welcome-banner h1 {
+        font-size: 20px;
+    }
 
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .stat-card {
+        min-height: 110px;
+    }
 }
 </style>
 
